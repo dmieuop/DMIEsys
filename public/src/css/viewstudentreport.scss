@@ -1,0 +1,60 @@
+.bg-lsuccess {
+    background: rgb(198, 255, 198);
+}
+.bg-lprimary {
+    background: rgb(205, 243, 255);
+}
+.bg-lwarning {
+    background: rgb(255, 255, 230);
+}
+.bg-ldanger {
+    background: rgb(255, 210, 217);
+}
+
+.progress-bar {
+    animation: animbar 2s linear forwards;
+}
+
+.roundProgressBar {
+    width: 170px;
+    height: 170px;
+    margin-top: 8%;
+    margin-bottom: 10%;
+    .outer {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 1rem solid rgba(200, 200, 200, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text {
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+    svg {
+        fill: none;
+        // stroke: blueviolet;
+        stroke-width: 1rem;
+        stroke-dasharray: 480;
+        position: relative;
+        top: -100%;
+        height: 100%;
+        width: 100%;
+        animation: anim 2s linear forwards;
+    }
+}
+
+@keyframes anim {
+    0% {
+        stroke-dashoffset: 480;
+    }
+}
+
+@keyframes animbar {
+    0% {
+        width: 0%;
+    }
+}
