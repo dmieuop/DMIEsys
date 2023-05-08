@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\HomeRedirect;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -37,6 +38,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web', 'throttle:10,1', ProtectAgainstSpam::class)
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web', 'throttle:20,1', HomeRedirect::class, ProtectAgainstSpam::class)
+                ->name('home.')
+                ->prefix('pages')
+                ->group(base_path('routes/home/web.php'));
 
             Route::middleware('web', 'auth', 'throttle:50,1', ProtectAgainstSpam::class)
                 ->prefix('dmiesys')
