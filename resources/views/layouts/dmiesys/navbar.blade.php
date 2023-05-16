@@ -36,13 +36,14 @@
                 </div>
                 @endauth
             </div>
-            @auth
+
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
+                @auth
                 @can('see notification')
                 @livewire('notification-badge')
                 @endcan
-
+                @endauth
 
                 <div class="relative mx-3">
                     <button type="button" data-tooltip-target="tooltip-dark-mode-btn" data-tooltip-placement="bottom"
@@ -58,6 +59,7 @@
 
 
                 <!-- Profile dropdown -->
+                @auth
                 <div class="relative ml-3">
                     <div>
                         <button type="button" id="profile-dropdown-button"
@@ -102,8 +104,8 @@
                         </form>
                     </div>
                 </div>
+                @endauth
             </div>
-            @endauth
         </div>
     </div>
 
