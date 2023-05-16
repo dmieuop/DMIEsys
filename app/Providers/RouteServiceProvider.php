@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('api.')
                 ->group(base_path('routes/dmiesys/api.php'));
 
-            Route::middleware('web', 'throttle:10,1', ProtectAgainstSpam::class)
+            Route::middleware('web', 'throttle:20,1', ProtectAgainstSpam::class)
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web', 'throttle:20,1', HomeRedirect::class, ProtectAgainstSpam::class)
