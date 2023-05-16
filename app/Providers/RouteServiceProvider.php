@@ -8,7 +8,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use Spatie\Honeypot\ProtectAgainstSpam;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,15 +35,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('api.')
                 ->group(base_path('routes/dmiesys/api.php'));
 
-            Route::middleware('web', 'throttle:20,1', ProtectAgainstSpam::class)
+            Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web', 'throttle:20,1', HomeRedirect::class, ProtectAgainstSpam::class)
+            Route::middleware('web', HomeRedirect::class)
                 ->name('home.')
                 ->prefix('pages')
                 ->group(base_path('routes/home/web.php'));
 
-            Route::middleware('web', 'auth', 'throttle:50,1', ProtectAgainstSpam::class)
+            Route::middleware('web', 'auth')
                 ->prefix('dmiesys')
                 ->group(base_path('routes/dmiesys/web.php'));
         });
