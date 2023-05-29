@@ -14,9 +14,10 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('cache:prune-stale-tags')->hourly();
+        // $schedule->command('cache:prune-stale-tags')->hourly();
         $schedule->command('AllocateMaintenanceTasks')->onOneServer()->environments(['production'])->dailyAt('00:30');
         $schedule->command('RemindAdvisorsToLogComments')->onOneServer()->environments(['production'])->weeklyOn(2, '8:00');
+        $schedule->command('DeactivateOldAccessTable')->onOneServer()->hourly();
     }
 
 

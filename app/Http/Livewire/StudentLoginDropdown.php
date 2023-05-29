@@ -6,7 +6,7 @@ use App\Models\Student;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-class ExternalUserAuthDropdown extends Component
+class StudentLoginDropdown extends Component
 {
     public $selectedCategory = null;
     public $selectedBatch = null;
@@ -36,7 +36,7 @@ class ExternalUserAuthDropdown extends Component
 
     public function render()
     {
-        return view('livewire.external-user-auth-dropdown');
+        return view('livewire.student-login-dropdown');
     }
 
     public function updatedSelectedCategory(string $cat): void

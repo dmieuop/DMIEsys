@@ -16,5 +16,10 @@ return [
         'main_site' => env('ENABLE_MAIN_SITE', false),
     ],
 
+    'contact' => [
+        'office' => env('MAIL_RECIPIENT', 'officeemail@email.com'),
+    ],
+
+
 
 ];

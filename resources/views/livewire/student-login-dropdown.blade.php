@@ -1,15 +1,4 @@
 <div>
-
-    <div class="mb-3">
-        <label for="catagory" class="form-label">Who Am I?</label>
-        <select wire:model="selectedCategory" class="form-select" id="category" name="category" required>
-            <option value="{{ null }}"> -- Select Category -- </option>
-            <option value="undergraduate">I am an Undergraduate</option>
-            <option value="alumni">I am an Alumni</option>
-        </select>
-    </div>
-
-    @if ($selectedCategory == 'undergraduate')
     <div class="mb-3">
         <label for="batch" class="form-label">Batch</label>
         <select wire:model="selectedBatch" class="form-select" id="batch" name="batch" required>
@@ -36,7 +25,6 @@
         <label class="form-label" for="email">Type your email</label>
         <input type="email" class="form-input" name="email" placeholder="{{ $email }}" required>
     </div>
-    @endif
     @endif
     @endif
 

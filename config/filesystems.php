@@ -47,6 +47,14 @@ return [
             'throw' => false,
         ],
 
+        'temp' => [
+            'driver' => 'local',
+            'root' => env('APP_PUBLIC_PATH', public_path() . '\\') . 'temp',
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'image' => [
             'driver' => 'local',
             'root' => env('APP_PUBLIC_PATH', public_path() . '\\') . 'storage',

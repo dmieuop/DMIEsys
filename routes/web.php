@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ExternalUserController;
+use App\Http\Controllers\ExternalUser\StudentProfileController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Middleware\HomeRedirect;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +15,6 @@ Route::get('/dmiesys', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware(HomeRedirect::class);
 
-Route::resource('/external-user', ExternalUserController::class);
+Route::get('/student-login', [StudentProfileController::class, 'login'])->name('student.login');
+Route::get('/student-login/{token}/edit', [StudentProfileController::class, 'login']);
+Route::resource('/student-profile', StudentProfileController::class);
