@@ -85,6 +85,11 @@ Route::group(['prefix' => 'pg-admin'], function () {
     Route::resource('/pg-registrations', PgStudentController::class)->only('index');
 });
 
+Route::group(['prefix' => 'book-facility'], function () {
+    Route::get('/', [DashboardController::class, 'bookFacility'])->name('book.facility');
+    // Route::resource('/pg-registrations', PgStudentController::class)->only('index');
+});
+
 
 Route::resource('/messages', MessageController::class);
 Route::resource('/user-profile', ProfileController::class);
