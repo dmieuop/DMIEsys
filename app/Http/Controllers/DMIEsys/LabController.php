@@ -39,16 +39,19 @@ class LabController extends Controller
      */
     public function store(Request $request)
     {
-
         abort_unless(($this->can('add laboratory')), 404);
 
         Validator::make($request->all(), [
             'name' => 'required|string|max:100',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'academicstaff' => 'nullable|exists:users,id',
-            'technicalstaff' => 'required|exists:users,id',
+            'technicalstaff' => 'nullable|exists:users,id',
             'temporarystaff' => 'nullable|exists:users,id',
+            'allow_internal_booking' => 'sometimes|boolean',
+            'allow_external_booking' => 'sometimes|boolean',
         ])->validate();
+
+        // dd($request->request);
 
         try {
             Lab::create([
@@ -57,6 +60,8 @@ class LabController extends Controller
                 'academicstaff' => $request->academicstaff,
                 'technicalstaff' => $request->technicalstaff,
                 'temporarystaff' => $request->temporarystaff,
+                'book_by_internal_members' => $request->allow_internal_booking ?? false,
+                'book_by_external_members' => $request->allow_external_booking ?? false,
             ]);
         } catch (\Throwable $th) {
             $this->failed($th);

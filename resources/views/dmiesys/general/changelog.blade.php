@@ -12,6 +12,35 @@
 
     <div class="prose prose-md">
         <div class="flex">
+            <div class="text-2xl font-semibold text-black dark:text-white">v2.5</div>
+            <span
+                class="ml-5 mr-2 rounded-2xl rounded bg-purple-100 px-3 py-1.5 text-sm font-medium text-purple-800 dark:bg-purple-200 dark:text-purple-800">
+                Feature release</span>
+        </div>
+        <div class="text-md dark:text-gray-400">June 30, 2023</div>
+        <h3 class="dark:text-white">New additions</h3>
+        <ul class="dark:text-gray-400">
+            <li>
+                Internal users now can book a facility.
+            </li>
+        </ul>
+        <h3 class="dark:text-white">Changes</h3>
+        <ul class="dark:text-gray-400">
+            <li>
+                Dark mode switcher is back with instant mode switching.
+            </li>
+        </ul>
+        <h3 class="dark:text-white">Bug fixes</h3>
+        <ul class="dark:text-gray-400">
+            <li>
+                Fixed a bug which caused 'add a new lab' button icon to disappear.
+            </li>
+        </ul>
+    </div>
+    <x-section-border />
+
+    <div class="prose prose-md">
+        <div class="flex">
             <div class="text-2xl font-semibold text-black dark:text-white">v2.4</div>
             <span
                 class="ml-5 mr-2 rounded-2xl rounded bg-purple-100 px-3 py-1.5 text-sm font-medium text-purple-800 dark:bg-purple-200 dark:text-purple-800">

@@ -12,9 +12,9 @@ return new class extends Migration
         Schema::create('labs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('academicstaff')->nullable();
-            $table->unsignedBigInteger('technicalstaff');
+            $table->unsignedBigInteger('technicalstaff')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
