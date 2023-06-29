@@ -86,6 +86,11 @@ class DashboardController extends Controller
         return view('dmiesys.general.pg-admin');
     }
 
+    public function bookFacility()
+    {
+        return view('dmiesys.laboratories.book-facility');
+    }
+
     public function viewLogs()
     {
         /* This is checking if the user has the permission to see logs. If they do, it returns the

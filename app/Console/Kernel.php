@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('cache:prune-stale-tags')->hourly();
         $schedule->command('AllocateMaintenanceTasks')->onOneServer()->environments(['production'])->dailyAt('00:30');
         $schedule->command('RemindAdvisorsToLogComments')->onOneServer()->environments(['production'])->weeklyOn(2, '8:00');
+        $schedule->command('RemindFacilityBooking')->onOneServer()->everyThirtyMinutes()->environments(['production']);
     }
 
 

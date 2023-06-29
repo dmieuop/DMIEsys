@@ -6,6 +6,12 @@
     </x-tile>
     @endcan
 
+    @if (auth()->user()->active_status)
+    <x-tile icon="clock-history" route="book.facility">
+        Book a Facility
+    </x-tile>
+    @endif
+
     @canany(['add machine', 'see machine', 'edit machine', 'delete machine','add maintenance','see maintenance', 'edit
     maintenance', 'delete maintenance'])
     <x-tile icon="robot" route="manage.machines">
