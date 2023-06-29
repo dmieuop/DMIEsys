@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class BookingLab extends Model
 {
     use HasFactory;
+
+    public function getLab()
+    {
+        return $this->belongsTo(Lab::class, 'lab_id', 'id');
+    }
 }

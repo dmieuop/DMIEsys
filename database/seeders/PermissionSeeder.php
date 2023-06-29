@@ -57,6 +57,7 @@ class PermissionSeeder extends Seeder
             'see inventory',
             'edit inventory',
             'delete inventory',
+            'approve booking',
         ];
 
         $hrPermissions = [];

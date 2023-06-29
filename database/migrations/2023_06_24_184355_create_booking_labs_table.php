@@ -24,8 +24,12 @@ return new class extends Migration
             $table->string('department', 200);
             $table->text('notes')->nullable();
             $table->boolean('approved')->default(0);
+            $table->boolean('rejected')->default(0);
             $table->unsignedBigInteger('technical_staff')->nullable();
             $table->timestamps();
+
+            $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('technical_staff')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
