@@ -36,7 +36,7 @@ class FacilityBookingPlaced extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.facility-booking-placed',
+            markdown: 'emails.facility-booking.placed',
         );
     }
 

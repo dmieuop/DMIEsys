@@ -5,8 +5,10 @@ namespace App\Http\Controllers\DMIEsys;
 use App\Models\BookingLab;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\FacilityBookingApproved;
 use App\Mail\FacilityBookingPlaced;
 use App\Mail\FacilityBookingReceived;
+use App\Mail\FacilityBookingRejected;
 use App\Models\Lab;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
@@ -185,7 +187,7 @@ class BookingLabController extends Controller
                 'url' => route('book-labs.create'),
             ];
 
-            // Mail::to($booking->email)->send(new FacilityBookingApproved($body));
+            Mail::to($booking->email)->send(new FacilityBookingApproved($body));
 
             return redirect()->route('book-labs.index')->with('toast_success', 'Booking approved successfully!');
         } else {
@@ -208,7 +210,7 @@ class BookingLabController extends Controller
                 'url' => route('book-labs.create'),
             ];
 
-            // Mail::to($booking->email)->send(new FacilityBookingRejected($body));
+            Mail::to($booking->email)->send(new FacilityBookingRejected($body));
 
             return redirect()->route('book-labs.index')->with('toast_success', 'Booking rejected successfully!');
         }
