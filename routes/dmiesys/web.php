@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DMIEsys\AdvisoryCommentController;
 use App\Http\Controllers\DMIEsys\BaseCourseController;
+use App\Http\Controllers\DMIEsys\BookingLabController;
 use App\Http\Controllers\DMIEsys\CourseController;
 use App\Http\Controllers\DMIEsys\CourseReportController;
 use App\Http\Controllers\DMIEsys\DashboardController;
@@ -83,6 +84,11 @@ Route::group(['prefix' => 'manage-machines'], function () {
 Route::group(['prefix' => 'pg-admin'], function () {
     Route::get('/', [DashboardController::class, 'pgAdmin'])->name('pg.admin');
     Route::resource('/pg-registrations', PgStudentController::class)->only('index');
+});
+
+Route::group(['prefix' => 'book-facility'], function () {
+    Route::get('/', [DashboardController::class, 'bookFacility'])->name('book.facility');
+    Route::resource('/book-labs', BookingLabController::class);
 });
 
 
