@@ -2,8 +2,7 @@
 Dear {{ $body['name'] }},
 <br>
 
-# Your booking has been approved.
-A technical staff member was assigned to your booking for further assistance.
+# You have a booking in 30min from now.
 
 ## Booking Details
 
@@ -11,10 +10,10 @@ A technical staff member was assigned to your booking for further assistance.
 <strong>Department</strong>         : {{ $body['department'] }}<br>
 <strong>Requested Facility</strong> : {{ $body['facility'] }}<br>
 <strong>Date</strong>              : {{ $body['date'] }}<br>
-<strong>Time</strong>              : {{ $body['start_time'] }} To {{ $body['end_time'] }}<br>
+<strong>Time</strong>              : {{ $body['start_time'] }} To {{ $body['end_time'] }}
 </x-mail::panel>
 
-## TO Member Details
+## Assigned TO Member Details
 
 <x-mail::panel>
 <strong>Name</strong>        : {{ $body['to_name'] }}<br>

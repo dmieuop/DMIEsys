@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class FacilityBookingReminding extends Mailable implements ShouldQueue
+class FacilityBookingAssigned extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -26,7 +26,7 @@ class FacilityBookingReminding extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Facility Booking Reminding',
+            subject: 'Facility Booking Duty Assigned',
         );
     }
 
@@ -36,7 +36,7 @@ class FacilityBookingReminding extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.facility-booking.reminding',
+            markdown: 'emails.facility-booking.assigned',
         );
     }
 

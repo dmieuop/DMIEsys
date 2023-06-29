@@ -12,7 +12,7 @@ Dear DMIE Office,
 <strong>Department</strong>  : {{ $body['department'] }}<br>
 @endif
 <strong>Email</strong>       : {{ $body['email'] }}<br>
-<strong>Phone</strong>       : {{ $body['phone'] }}<br>
+<strong>Phone</strong>       : {{ $body['phone'] ?? '(Not provided)' }}<br>
 </x-mail::panel>
 
 ## Booking Details
@@ -21,7 +21,7 @@ Dear DMIE Office,
 <strong>Requested Facility</strong> : {{ $body['facility'] }}<br>
 <strong>Date</strong>              : {{ $body['date'] }}<br>
 <strong>Time</strong>              : {{ $body['start_time'] }} To {{ $body['end_time'] }}<br>
-<strong>Notes</strong>             : {{ $body['notes'] }}
+<strong>Notes</strong>             : {{ $body['notes'] ?? '(No notes)' }}
 </x-mail::panel>
 
 Please log in to the DMIEsys and approve the booking.

@@ -100,8 +100,8 @@
 
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" id="phone" class="form-input-readonly" value="{{ auth()->user()->phone }}"
-                        disabled placeholder="update from profile settings">
+                    <input type="text" id="phone" name="phone" class="form-input"
+                        value="{{ old('phone') ?? auth()->user()->phone }}" placeholder="Enter a phone number">
                 </div>
 
 
@@ -249,13 +249,20 @@
                 @csrf @method('PUT') @honeypot
 
                 <div class="mb-3">
-                    <label for="technical_officer" class="form-label">Assign a technical officer</label>
+                    <label for="technical_officer" class="form-label">Assign a technical officer (only for approval)
+                    </label>
                     <select id="technical_officer" class="form-select" name="technical_officer">
                         <option value="{{ null }}" selected>-- Select status --</option>
                         @foreach ($technical_officers as $technical_officer)
                         <option value="{{ $technical_officer->id }}">{{ $technical_officer->name }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reason" class="form-label">Reason for rejection (only for rejection)</label>
+                    <input type="text" id="reason" name="reason" class="form-input"
+                        placeholder="Enter a reason for rejection">
                 </div>
 
                 <div class="mb-3 grid grid-cols-2 gap-3">

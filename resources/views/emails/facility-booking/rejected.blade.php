@@ -1,12 +1,22 @@
-<x-mail::message>
-# Introduction
+@component('mail::message')
+Dear {{ $body['name'] }},
+<br>
 
-The body of your message.
+# Your booking has been rejected.
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+## Booking Details
 
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+<x-mail::panel>
+<strong>Department</strong> : {{ $body['department'] }}<br>
+<strong>Facility</strong>   : {{ $body['facility'] }}<br>
+<strong>Date</strong>       : {{ $body['date'] }}<br>
+<strong>Time</strong>       : {{ $body['start_time'] }} To {{ $body['end_time'] }}<br>
+<strong>Reason for rejection</strong>       : {{ $body['reason'] }}
+</x-mail::panel>
+
+Please contact department office for further details.
+
+
+Thank you,<br>
+{{ config('app.name') }} | <strong>DMIE</strong>
+@endcomponent
